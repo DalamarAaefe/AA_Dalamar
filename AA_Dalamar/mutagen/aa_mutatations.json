@@ -1,0 +1,348 @@
+[ 
+  {
+    "type": "mutation_category",
+    "id": "TROLL",
+    "name": "Troll",
+    "threshold_mut": "THRESH_TROLL",
+    "mutagen_message": "You feel.. Dumber?",
+    "iv_message": "You inject something? Into your.. uhhh, what was it called again?",
+    "memorial_message": "Died Stupidly."
+  },
+  {
+    "id": "iv_mutagen_troll",
+    "copy-from": "iv_mutagen_flavor",
+    "type": "COMESTIBLE",
+    "name": { "str": "troll serum" },
+    "description": "A super-concentrated mutagen resembling jade?.  You need a syringe to inject it… if you really want to?",
+    "color": "light_gray",
+    "use_action": { "type": "mutagen_iv", "mutation_category": "TROLL" }
+  },
+    {
+    "id": "mutagen_troll",
+    "copy-from": "mutagen_flavor",
+    "type": "COMESTIBLE",
+    "name": { "str": "troll mutagen" },
+    "use_action": { "type": "mutagen", "mutation_category": "TROLL" }
+  },
+    {
+    "type": "mutation",
+    "id": "THRESH_TROLL",
+    "name": { "str": "Troll" },
+    "points": 1,
+    "description": "Theys is gonna PAY! The Troll TOLL! Haha!",
+    "valid": false,
+    "purifiable": false,
+    "threshold": true
+  },
+    {
+    "type": "mutation",
+    "id": "GIGANTISM",
+    "name": { "str": "Gigantism" },
+    "points": 3,
+    "description": "You're a Giant! You have increased stomach capacity among other size related boons, but exerting energy and recovering from your exertions is extra taxing on your body.",
+    "starting_trait": true,
+    "mixed_effect": true,
+	"metabolism_modifier": 0.25,
+    "stamina_regen_modifier": 0.05,
+	"healing_resting": -0.10,
+    "mending_modifier": 0.90,
+	"hp_modifier": 0.2,
+	"max_stamina_modifier": 0.90,
+	"stomach_size_multiplier": 1.5,
+    "passive_mods": { "str_mod": 1, "dex_mod": -1 },
+	"movecost_modifier": 1.05,
+	"attackcost_modifier": 0.90
+  },
+  {
+    "type": "mutation",
+    "id": "TROLLSKIN2",
+    "name": { "str": "Elder Troll-Skin" },
+    "points": 1,
+    "description": "Your skin is tough, very tough; leathery and firm. Cutting and Bashing damage to you is reduced",
+    "starting_trait": false,
+	"threshreq": [ "THRESH_TROLL" ],
+    "category": [ "TROLL" ],
+    "passive_mods": { "int_mod": -1 },
+    "cancels": [ "THINSKIN", "THICKSKIN", "TROLLSKIN" ],
+    "armor": [
+      {
+        "parts": [ "torso", "head", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r", "mouth" ],
+        "cut": 7,
+        "bash": 7,
+		"acid": 7,
+		"bullet": 10
+      }
+    ]
+  },
+   {
+    "type": "mutation",
+    "id": "TROLLSKIN",
+    "name": { "str": "Young Troll-Skin" },
+    "points": 1,
+    "description": "Your skin is tough, very tough; leathery and firm. Cutting and Bashing damage to you is reduced",
+    "starting_trait": false,
+	"changes_to": [ "TROLLSKIN2" ],
+    "category": [ "TROLL" ],
+    "passive_mods": { "int_mod": -1 },
+    "cancels": [ "THINSKIN", "THICKSKIN" ],
+    "armor": [
+      {
+        "parts": [ "torso", "head", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r", "mouth" ],
+        "cut": 3,
+        "bash": 3,
+		"acid": 3,
+		"bullet": 5
+      }
+    ]
+  },
+    {
+    "type": "mutation",
+    "id": "TROLLDIET",
+    "name": { "str": "Troll's Diet" },
+    "points": 1,
+    "description": "Meat's Meat! 'ho cares where or 'ho it came from",
+    "social_modifiers": { "persuade": -20, "lie": -20, "intimidate": 6 },
+    "valid": false,
+    "purifiable": false,
+    "threshreq": [ "THRESH_TROLL" ],
+    "cancels": [ "VEGETARIAN", "HERBIVORE", "RUMINANT", "GRAZER" ],
+    "category": [ "TROLL" ],
+    "flags": [ "CANNIBAL", "PRED4" ]
+  },
+    {
+    "type": "mutation",
+    "id": "TROLLCARDIO2",
+    "name": { "str": "Elder Troll's Tenacity" },
+    "points": 4,
+    "description": "O'im STILL gunna getcha 'umies nao c'mere! Stamina increased by 65%",
+    "valid": false,
+    "cancels": [ "BADCARDIO", "TROLLCARDIO" ],
+    "threshreq": [ "THRESH_TROLL" ],
+    "category": [ "TROLL" ],
+    "max_stamina_modifier": 1.65,
+    "passive_mods": { "int_mod": -1 }
+  },
+    {
+    "type": "mutation",
+    "id": "TROLLCARDIO",
+    "name": { "str": "Young Troll's Tenacity" },
+    "points": 4,
+    "description": "O'im gunna getcha 'umies nao c'mere! Stamina increased by 35%",
+    "valid": false,
+    "prereqs": [ "GOODCARDIO" ],
+	"changes_to": [ "TROLLCARDIO2" ],
+    "cancels": [ "BADCARDIO" ],
+    "category": [ "TROLL" ],
+    "max_stamina_modifier": 1.35,
+    "passive_mods": { "int_mod": -1 }
+  },
+    {
+    "type": "mutation",
+    "id": "MET_TROLL2",
+    "name": { "str": "Elder Troll Blood" },
+    "points": 14,
+    "valid": false,
+    "description": "You require extensive resources to keep your magical blood potency up, but have fast active regeneration, and restore stamina 40% faster",
+    "types": [ "HEALING" ],
+    "threshreq": [ "THRESH_TROLL" ],
+    "cancels": [ "LIGHTEATER", "COLDBLOOD", "COLDBLOOD2", "COLDBLOOD3", "COLDBLOOD4", "WAKEFUL", "WAKEFUL2", "WAKEFUL3" ],
+    "category": [ "TROLL" ],
+    "healing_awake": 2,
+    "healing_resting": 6,
+    "metabolism_modifier": 1,
+    "stamina_regen_modifier": 0.4
+  },
+    {
+    "type": "mutation",
+    "id": "MET_TROLL",
+    "name": { "str": "Young Troll Blood" },
+    "points": 14,
+    "valid": false,
+    "description": "You require extensive resources to keep your magical blood potency up, but have a slow active regeneration, and restore stamina 20% faster",
+    "types": [ "HEALING" ],
+    "cancels": [ "LIGHTEATER", "COLDBLOOD", "COLDBLOOD2", "COLDBLOOD3", "COLDBLOOD4", "WAKEFUL", "WAKEFUL2", "WAKEFUL3" ],
+    "prereqs": [ "HUNGER2" ],
+	"prereqs2": [ "CANNIBAL" ],
+    "category": [ "TROLL" ],
+	"changes_to": [ "MET_TROLL2" ],
+    "healing_awake": 0.5,
+    "healing_resting": 2,
+    "metabolism_modifier": 0.6,
+    "stamina_regen_modifier": 0.2
+  },
+    {
+    "type": "mutation",
+    "id": "HUGE2",
+    "flags": [ "LARGE" ],
+    "name": { "str": "Elder Troll Girth" },
+    "points": 2,
+    "visibility": 4,
+    "ugliness": 18,
+    "mixed_effect": true,
+    "description": "O'im bigga n betta n stronga dan 'eva before! +5 strength, 40% increase in HP",
+    "prereqs2": [ "TROLLSTR2" ],
+    "cancels": [ "SMALL", "SMALL2", "LARGE2" ],
+    "threshreq": [ "THRESH_TROLL" ],
+    "category": [ "TROLL" ],
+    "passive_mods": { "str_mod": 5 },
+    "restricts_gear": [ "torso", "leg_l", "leg_r", "arm_l", "arm_r", "hand_l", "hand_r", "head", "foot_l", "foot_r" ],
+    "destroys_gear": true,
+    "stomach_size_multiplier": 3,
+    "weight_capacity_modifier": 1.2,
+	"social_modifiers": { "intimidate": 8 },
+    "hp_modifier": 0.4
+  },
+  
+    {
+    "type": "mutation",
+    "id": "LARGE2",
+    "flags": [ "LARGE" ],
+    "name": { "str": "Young Troll Girth" },
+    "points": 2,
+    "visibility": 4,
+    "ugliness": 8,
+    "description": "O'im feelin' bigga! +3 strength, 30% increase in HP",
+    "prereqs": [ "TROLLSTR" ],
+    "prereqs2": [ "PAINRESIST" ],
+	"changes_to": [ "HUGE2" ],
+    "cancels": [ "SMALL", "SMALL2", "LARGE" ],
+    "category": [ "TROLL" ],
+    "passive_mods": { "str_mod": 3 },
+    "stomach_size_multiplier": 1.5,
+    "weight_capacity_modifier": 1.1,
+	"social_modifiers": { "intimidate": 3 },
+    "hp_modifier": 0.3
+  },
+    {
+    "type": "mutation",
+    "id": "TROLLSTR",
+    "name": { "str": "Young Troll's Strength" },
+    "points": 4,
+    "visibility": 1,
+    "description": "I's is gittin' bigga!  Strength + 3, Intelligence -3, Perception -1",
+	"changes_to": [ "TROLLSTR2" ],
+	"cancels": [ "STR_UP_2" ],
+    "category": [ "TROLL" ],
+    "passive_mods": { "str_mod": 3, "int_mod": -3, "per_mod": -1 }
+  },
+    {
+    "type": "mutation",
+    "id": "TROLLSTR2",
+    "name": { "str": "Elder Troll's Strength" },
+	"cancels": [ "TROLLSTR" ],
+    "points": 4,
+	 "threshreq": [ "THRESH_TROLL" ],
+    "visibility": 1,
+    "description": "O'IM BULGY TOIME!  Strength + 5, Intelligence -5, Perception -3",
+    "category": [ "TROLL" ],
+    "passive_mods": { "str_mod": 5, "int_mod": -5, "per_mod": -3 }
+  },
+    {
+    "type": "mutation",
+    "id": "PAINRESIST",
+    "copy-from": "PAINRESIST",
+    "extend": { "category": [ "TROLL" ] }
+  },
+      {
+    "type": "mutation",
+    "id": "GOODCARDIO",
+    "copy-from": "GOODCARDIO",
+    "extend": { "category": [ "TROLL" ] }
+  },
+    {
+    "type": "mutation",
+    "id": "POISRESIST",
+    "copy-from": "POISRESIST",
+    "extend": { "category": [ "TROLL" ] }
+  },
+      {
+    "type": "mutation",
+    "id": "HUNGER",
+    "copy-from": "HUNGER",
+    "extend": { "category": [ "TROLL" ] }
+  },
+        {
+    "type": "mutation",
+    "id": "HUNGER2",
+    "copy-from": "HUNGER2",
+    "extend": { "category": [ "TROLL" ] }
+  },
+    {
+    "type": "mutation",
+    "id": "HEAVYSLEEPER",
+    "copy-from": "HEAVYSLEEPER",
+    "extend": { "category": [ "TROLL" ] }
+  },
+    {
+    "type": "mutation",
+    "id": "CANNIBAL",
+    "copy-from": "CANNIBAL",
+    "extend": { "category": [ "TROLL" ] }
+  },
+      {
+    "type": "mutation",
+    "id": "HEAVYSLEEPER2",
+    "copy-from": "HEAVYSLEEPER2",
+    "extend": { "category": [ "TROLL" ] }
+  },
+  {
+    "type": "mutation",
+    "id": "STR_UP",
+    "copy-from": "STR_UP",
+    "extend": { "category": [ "TROLL" ] }
+  },
+    {
+    "type": "mutation",
+    "id": "STR_UP_2",
+    "copy-from": "STR_UP2",
+    "extend": { "category": [ "TROLL" ] }
+  },
+    {
+    "type": "mutation",
+    "id": "QUICK",
+    "copy-from": "QUICK",
+    "extend": { "category": [ "TROLL" ] }
+  },    
+  {
+    "type": "mutation",
+    "id": "KILLER",
+    "copy-from": "KILLER",
+    "extend": { "category": [ "TROLL" ] }
+  }, 
+   {
+    "type": "mutation",
+    "id": "FORGETFUL",
+    "copy-from": "FORGETFUL",
+    "extend": { "category": [ "TROLL" ] }
+  }, 
+   {
+    "type": "mutation",
+    "id": "FLEET",
+    "copy-from": "FLEET",
+    "extend": { "category": [ "TROLL" ] }
+  }, 
+   {
+    "type": "mutation",
+    "id": "TOUGH_FEET",
+    "copy-from": "TOUGH_FEET",
+    "extend": { "category": [ "TROLL" ] }
+  },
+  {
+    "type": "mutation",
+    "id": "MEATARIAN",
+    "copy-from": "MEATARIAN",
+    "extend": { "category": [ "TROLL" ] }
+  },
+    {
+    "type": "mutation",
+    "id": "ANTIFRUIT",
+    "copy-from": "ANTIFRUIT",
+    "extend": { "category": [ "TROLL" ] }
+  },
+      {
+    "type": "mutation",
+    "id": "CLUMSY",
+    "copy-from": "CLUMSY",
+    "extend": { "category": [ "TROLL" ] }
+  }
+  ]

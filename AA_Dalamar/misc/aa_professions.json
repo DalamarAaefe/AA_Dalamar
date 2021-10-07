@@ -1,0 +1,86 @@
+ [
+ {
+    "type": "profession",
+    "id": "reenactor",
+    "name": { "male": "Historical Reenactor", "female": "Ahistorical Reenactor" },
+    "description": "You were on your way to the Annual All New England Revolutionary War Living History exhibition when the end of the world permanently derailed your plans.",
+    "points": 3,
+    "proficiencies": [ "prof_gunsmithing_basic", "prof_metalworking", "prof_gunsmithing_antique", "prof_blacksmithing" ],
+    "skills": [
+	  { "level": 3, "name": "rifle" },
+      { "level": 1, "name": "gun" },
+	  { "level": 3, "name": "traps" },
+      { "level": 2, "name": "mechanics" },
+	  { "level": 3, "name": "survival" }
+    ],
+    "items": {
+      "both": {
+        "items": [
+          "stockings",
+          "pockknife",
+          "pipe_tobacco",
+          "tobacco",
+          "backpack",
+          "knee_high_boots",
+          "breeches",
+          "waistcoat",
+          "peacoat",
+          "leather_belt",
+          "knit_scarf",
+          "tricorne",
+          "hatchet",
+          "hardtack",
+          "pipe_cleaner"
+        ],
+        "entries": [
+          { "item": "rifle_flintlock", "ammo-item": "flintlock_ammo", "charges": 1, "contents-item": "shoulder_strap" },
+          { "item": "flintlock_pouch", "contents-group": "flintlock_pouch_reenactor" },
+          { "item": "flintlock_ammo", "charges": 15 },
+          { "item": "vinegar", "container-item": "bottle_plastic_small" },
+          { "item": "lamp_oil", "container-item": "bottle_plastic_small" },
+          { "group": "charged_cell_phone" },
+          { "group": "charged_matches" }
+        ]
+      }
+    }
+  },
+    {
+    "type": "mutation",
+	"copy-from": "CANNIBAL",
+	"id": "CANNIBAL",
+    "points": 2,
+    "//": "Feral humans vastly increase the cannibal meat supply, therefore this trait needs to increase in cost.",
+    "description": "For your whole life you've been forbidden from indulging in your peculiar tastes.  Now the world's ended, and you'll be damned if anyone is going to tell you that you can't eat people.",
+    "starting_trait": true,
+    "valid": false,
+    "cancels": [ "VEGETARIAN", "HERBIVORE", "RUMINANT", "GRAZER" ],
+    "flags": [ "CANNIBAL" ]
+  },
+    {
+    "type": "profession",
+    "id": "zoo_keeper",
+    "name": "Zoo Keeper",
+    "description": "You were called in on your day off to feed the animals at the zoo.  For some reason, none of your coworkers bothered showing up for work today.",
+    "points": 1,
+    "traits": [ "ANIMALEMPATH" ],
+    "skills": [ { "level": 1, "name": "firstaid" }, { "level": 1, "name": "survival" } ],
+    "items": {
+      "both": {
+        "items": [
+          "shorts_cargo",
+          "technician_shirt_gray",
+          "socks",
+          "boots",
+          "hat_boonie",
+          "slingpack",
+          "bucket",
+          "shovel",
+          "wristwatch"
+        ],
+        "entries": [ { "group": "charged_cell_phone" } ]
+      },
+      "male": [ "boxer_shorts" ],
+      "female": [ "bra", "panties" ]
+    }
+  }
+  ]

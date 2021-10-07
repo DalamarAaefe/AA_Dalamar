@@ -1,0 +1,12 @@
+[
+  {
+    "type": "MOD_INFO",
+    "id": "brewery",
+    "name": "Brewery",
+    "authors": [ "Dalamar Aaefe" ],
+    "maintainers": [ "Dalamar Aaefe" ],
+    "description": "A crafting overhaul",
+    "category": "misc_additions",
+    "dependencies": [ "dda", "magiclysm" ]
+  }
+]

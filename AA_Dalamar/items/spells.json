@@ -1,0 +1,109 @@
+ [
+    {
+    "id": "b_potion_stun",
+    "type": "SPELL",
+    "name": { "str": "Potion Sickness" },
+    "description": "Potion makes you sick",
+    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS" ],
+    "valid_targets": [ "self" ],
+    "effect": "attack",
+    "shape": "blast",
+    "effect_str": "b_potion_stun",
+    "min_duration": 25000,
+    "max_duration": 25000
+  },
+    {
+    "type": "effect_type",
+    "id": "b_potion_stun",
+    "name": [ "Mild Potion Sickness", "Moderate Potion Sickness", "Strong Potion Sickness", "Violent Potion Sickness", "Magical Potion Overdose" ],
+    "desc": [ "Potion sickens you!" ],
+    "max_intensity": 6,
+    "max_effective_intensity": 6,
+    "int_add_val": 1,
+    "base_mods": { "speed_mod": [ -9 ], "per_mod": [ -1 ], "dex_mod": [ -1 ], "str_mod": [ -1 ] },
+    "scaling_mods": { "speed_mod": [ -9 ], "per_mod": [ -1 ], "dex_mod": [ -1 ], "str_mod": [ -1 ] }
+  },
+    {
+    "type": "effect_type",
+    "id": "potion_cleanse",
+    "removes_effects": [
+      "dermatik",
+      "bleed",
+      "hypovolemia",
+      "blind",
+      "poison",
+      "stung",
+      "badpoison",
+      "foodpoison",
+      "asthma"
+    ],
+    "name": [ "Potion Cleanse" ],
+    "desc": [
+      "You have imbibed a potion of Healing, it has cured some of your immediate wounds, taking additional potions will have greater effect."
+    ],
+    "max_intensity": 1,
+    "base_mods": { "rad_chance": [ 180 ], "rad_min": [ -4 ], "rad_max": [ -3 ], "h_mod_chance": [ 1000 ], "vomit_chance": [ 10000 ] },
+    "scaling_mods": {
+      "h_mod_min": [ 0 ],
+      "h_mod_max": [ 2 ],
+      "h_mod_chance": [ 100 ],
+      "vomit_chance": [ 250 ],
+      "rad_chance": [ 180 ],
+      "rad_min": [ -0.7 ],
+      "rad_max": [ -0.9 ]
+    }
+  },
+  	  {
+    "id": "b_pain_relief_spell",
+    "type": "SPELL",
+    "name": { "str": "Pain Relief" },
+    "description": "Potion relieves your pain",
+    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS" ],
+    "valid_targets": [ "self" ],
+    "min_damage": 65,
+    "max_damage": 65,
+    "effect": "recover_energy",
+    "shape": "blast",
+    "effect_str": "PAIN",
+    "min_duration": 1,
+    "max_duration": 1
+  },
+   {
+    "id": "b_potion_healing_spell_weak",
+    "type": "SPELL",
+    "name": { "str": "Healing Potion" },
+    "description": "You are healing due to a potion!",
+    "message": "You consume the potion and your wounds are healing!",
+    "valid_targets": [ "self", "ally" ],
+    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "NO_PROJECTILE" ],
+    "effect_str": "potion_cleanse",
+    "min_damage": -20,
+	"damage_increment": -5.0,
+    "max_damage": -45,
+	"max_level": 5,
+    "effect": "attack",
+    "shape": "blast",
+    "extra_effects": [ { "id": "b_potion_stun", "hit_self": true }, { "id": "b_pain_relief_spell", "hit_self": true } ],
+    "min_duration": 1,
+    "max_duration": 1
+  },
+    {
+    "id": "b_potion_stamina",
+    "type": "SPELL",
+    "name": { "str": "Stamina Potion" },
+    "description": "You are recovering stamna due to a potion!",
+    "message": "You consume the potion and you feel refreshed and energized!",
+    "valid_targets": [ "self", "ally" ],
+    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "NO_PROJECTILE" ],
+    "effect": "recover_energy",
+    "effect_str": "STAMINA",
+    "min_damage": 1500,
+    "max_damage": 10000,
+	"damage_increment": 750,
+	"max_level": 12,
+    "shape": "blast",
+    "extra_effects": [ { "id": "b_potion_stun", "hit_self": true } ],
+    "min_duration": 1,
+    "max_duration": 1
+  }
+  ]

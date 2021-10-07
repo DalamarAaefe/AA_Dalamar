@@ -1,0 +1,41 @@
+ [
+ {
+    "id": "bucket_wood",
+    "type": "GENERIC",
+    "category": "container",
+    "name": { "str": "Wooden Bucket" },
+    "description": "A wooden bucket for peanuts, chilled wine, iced beer, lobster, crab legs, French fries, animal feed, farm use, tailgating, crafts, planting flowers, holding gift baskets, containing a fruit basket and herbs, loose item storage or as an ice bucket.",
+    "ascii_picture": "bucket",
+    "weight": "725 g",
+    "volume": "10500 ml",
+    "price": 300,
+    "price_postapoc": 10,
+    "material": [ "wood" ],
+    "symbol": ")",
+    "color": "light_gray",
+    "pocket_data": [
+      {
+        "pocket_type": "CONTAINER",
+        "rigid": true,
+        "watertight": true,
+        "open_container": true,
+        "max_contains_volume": "10000 ml",
+        "max_contains_weight": "20 kg"
+      }
+    ],
+    "qualities": [ [ "CONTAIN", 1 ] ]
+  },
+    {
+    "type": "recipe",
+    "activity_level": "MODERATE_EXERCISE",
+    "result": "bucket_wood",
+    "category": "CC_OTHER",
+    "subcategory": "CSC_OTHER_CONTAINERS",
+    "skill_used": "fabrication",
+    "difficulty": 3,
+    "time": "3 h",
+    "autolearn": true,
+    "qualities": [ { "id": "ANVIL", "level": 1 }, { "id": "HAMMER", "level": 2 }, { "id": "SAW_W", "level": 2 } ],
+    "components": [ [ [ "2x4", 10 ] ], [ [ "scrap", 3 ] ] ]
+  }
+  ]
